@@ -173,9 +173,7 @@ script:
   - export bashcomp_bash=bash
   - autoreconf -i
   - ./configure
-  - make -C completions check
-  - cd test
-  - export PATH="/usr/bin:$PATH"  # avoid Travis default ri etc
-  - ./runCompletion --all
-  - ./runInstall --all
-  - ./runUnit --all
+  - source bash_completion
+  - _parse_usage ssh-keygen -?
+  - ssh-keygen -? 2>&1 | _parse_usage
+  - _parse_help ssh-keygen -?
