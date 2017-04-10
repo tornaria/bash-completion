@@ -178,6 +178,8 @@ script:
   - make -C completions check
   - cd test
   - export PATH="/usr/bin:$PATH"  # avoid Travis default ri etc
-  - ./runCompletion --all
-  - ./runInstall --all
-  - ./runUnit --all
+  - ./runCompletion --all --debug 2to3.exp
+  - cat completion.log
+  - cat dbg.log
+  #- ./runInstall --all
+  #- ./runUnit --all
